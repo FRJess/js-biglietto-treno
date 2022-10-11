@@ -16,29 +16,23 @@ let scontoApplicato;
 
 
 let prezzoViaggio = prezzoKm * kmPercorso;
-console.log(prezzoViaggio);
 
 if(etaPassegero >= minorenne && etaPassegero < old){
   scontoApplicato = 0
-  console.log("passeggero senza sconto")
 }else if(etaPassegero < minorenne){
   scontoApplicato = scontoMinorenne
-  console.log("passeggero minorenne")
 }else{
   scontoApplicato = scontoOver65
-  console.log("passeggero old")
 }
 
 let prezzoFinale = prezzoViaggio - (prezzoViaggio * scontoApplicato);
-console.log(prezzoFinale)
 
 let formatCurrency = new Intl.NumberFormat("it-IT", {
   style: "currency",
   currency: "EUR"
 }).format(prezzoFinale);
-console.log(formatCurrency)
 
 document.getElementById("risultato").innerHTML=`
-Il tuo viaggio è di ${kmPercorso}km. <br>
-Il prezzo del tuo biglietto è di ${formatCurrency}.
+Per fare ${kmPercorso}km, <br>
+il prezzo del tuo biglietto sarà di ${formatCurrency}.
 `
