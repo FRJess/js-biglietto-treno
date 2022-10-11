@@ -10,16 +10,25 @@ const scontoMinorenne = 0.22;
 const scontoOver65 = 0.40;
 const kmPercorso = parseInt(prompt ("Quanti km devi percorrere?"));
 const etaPassegero = parseInt(prompt ("Quanti anni hai?"));
-const minorenne = 18
-const old = 65
+const minorenne = 18;
+const old = 65;
+let scontoApplicato;
+
+
 
 let prezzoViaggio = prezzoKm * kmPercorso;
 console.log(prezzoViaggio);
 
 if(etaPassegero >= minorenne && etaPassegero < old){
+  scontoApplicato = 0
   console.log("passeggero senza sconto")
 }else if(etaPassegero < minorenne){
+  scontoApplicato = scontoMinorenne
   console.log("passeggero minorenne")
 }else{
+  scontoApplicato = scontoOver65
   console.log("passeggero old")
 }
+
+let prezzoFinale = prezzoViaggio - (prezzoViaggio * scontoApplicato);
+console.log(prezzoFinale)
