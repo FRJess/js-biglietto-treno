@@ -15,7 +15,6 @@ const old = 65;
 let scontoApplicato;
 
 
-
 let prezzoViaggio = prezzoKm * kmPercorso;
 console.log(prezzoViaggio);
 
@@ -32,3 +31,9 @@ if(etaPassegero >= minorenne && etaPassegero < old){
 
 let prezzoFinale = prezzoViaggio - (prezzoViaggio * scontoApplicato);
 console.log(prezzoFinale)
+
+let formatCurrency = new Intl.NumberFormat("it-IT", {
+  style: "currency",
+  currency: "EUR"
+}).format(prezzoFinale);
+console.log(formatCurrency)
