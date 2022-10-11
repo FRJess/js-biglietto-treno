@@ -9,3 +9,7 @@ const prezzoKm = 0.21;
 const scontoMinorenne = 0.22;
 const scontoOver65 = 0.40;
 const kmPercorso = parseInt(prompt ("Quanti km devi percorrere?"));
+const etaPassegero = parseInt(prompt ("Quanti anni hai?"));
+
+let prezzoViaggio = prezzoKm * kmPercorso;
+console.log(prezzoViaggio);
