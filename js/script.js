@@ -5,34 +5,34 @@
 //va applicato uno sconto del 40% per gli over 65
 //L’output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
-const prezzoKm = 0.21;
-const scontoMinorenne = 0.22;
-const scontoOver65 = 0.40;
-const kmPercorso = parseInt(prompt ("Quanti km devi percorrere?"));
-const etaPassegero = parseInt(prompt ("Quanti anni hai?"));
-const minorenne = 18;
-const old = 65;
-let scontoApplicato;
+const costKm = 0.21;
+const discountJunior = 0.22;
+const discountSenior = 0.40;
+const kmTrip = parseInt(prompt ("Quanti km devi percorrere?"));
+const age = parseInt(prompt ("Quanti anni hai?"));
+const junior = 18;
+const senior = 65;
+let finalDiscount;
 
 
-let prezzoViaggio = prezzoKm * kmPercorso;
+let costTrip = costKm * kmTrip;
 
-if(etaPassegero >= minorenne && etaPassegero < old){
-  scontoApplicato = 0
-}else if(etaPassegero < minorenne){
-  scontoApplicato = scontoMinorenne
+if(age >= junior && age < senior){
+  finalDiscount = 0
+}else if(age < junior){
+  finalDiscount = discountJunior
 }else{
-  scontoApplicato = scontoOver65
+  finalDiscount = discountSenior
 }
 
-let prezzoFinale = prezzoViaggio - (prezzoViaggio * scontoApplicato);
+let finalCost = costTrip - (costTrip * finalDiscount);
 
 let formatCurrency = new Intl.NumberFormat("it-IT", {
   style: "currency",
   currency: "EUR"
-}).format(prezzoFinale);
+}).format(finalCost);
 
 document.getElementById("risultato").innerHTML=`
-Per fare ${kmPercorso}km, <br>
+Per fare ${kmTrip}km, <br>
 il prezzo del tuo biglietto sarà di ${formatCurrency}.
 `
